@@ -1,73 +1,116 @@
-# Welcome to your Lovable project
+# Encrypt.MD
 
-## Project info
+**Encrypt.MD** is a privacy-focused markdown editor with built-in AES encryption. It features a clean, intuitive interface for writing and encrypting markdown documents, allowing you to securely store sensitive notes directly in your browser.
 
-**URL**: https://lovable.dev/projects/3d3847f1-637f-4818-a332-4d0de700d0fb
+![Encrypt.MD Screenshot](screenshot.png)
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+* **Live Markdown Editing & Preview** – Write in markdown with real-time rendering
+* **AES Encryption** – Secure documents using strong AES encryption
+* **Tabbed Interface** – Work with multiple documents at once
+* **Syntax Highlighting** – Automatic highlighting for code blocks
+* **Document Stats** – Built-in word count and reading time
+* **Client-Side Encryption** – All data stays on your device; nothing is sent to any server
+* **Keyboard Shortcuts** – Includes useful shortcuts like Ctrl+S for saving
 
-**Use Lovable**
+## Getting Started
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/3d3847f1-637f-4818-a332-4d0de700d0fb) and start prompting.
+### Installation
 
-Changes made via Lovable will be committed automatically to this repo.
+Clone the repository and set up the development environment:
 
-**Use your preferred IDE**
+```bash
+# Clone the repository
+git clone https://github.com/nextcodeworks/encrypt-md.git
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+# Navigate into the project directory
+cd encrypt-md
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+# Install dependencies
+npm install
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Usage
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+1. **Create a New Document**
 
-**Use GitHub Codespaces**
+   * Click "New File" on the welcome screen or use the toolbar
+   * Start writing in the editor; the preview updates in real time
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+2. **Open an Existing Document**
 
-## What technologies are used for this project?
+   * Click "Open File" or use the toolbar
+   * Choose a `.md` or encrypted `.mdlock` file
 
-This project is built with:
+3. **Save a Document**
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+   * Click the Save button or press Ctrl+S (Cmd+S on Mac)
+   * Select a location to save the file
 
-## How can I deploy this project?
+4. **Encrypt a Document**
 
-Simply open [Lovable](https://lovable.dev/projects/3d3847f1-637f-4818-a332-4d0de700d0fb) and click on Share -> Publish.
+   * Click the Encrypt button in the toolbar
+   * A unique encryption key will be generated
+   * Save this key securely—you’ll need it to decrypt the file
+   * The encrypted document can be saved as a `.mdlock` file
 
-## Can I connect a custom domain to my Lovable project?
+5. **Decrypt a Document**
 
-Yes, you can!
+   * Open an encrypted `.mdlock` file
+   * Enter your encryption key when prompted
+   * Once decrypted, you can edit the document as usual
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Security
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Encrypt.MD uses AES encryption powered by the **CryptoJS** library. All encryption and decryption is done locally in your browser. Your data, including encryption keys, never leaves your device.
+
+## Technical Details
+
+* Built with **React**, **TypeScript**, and **Vite**
+* Uses:
+
+  * [CryptoJS](https://cryptojs.gitbook.io/docs/) – for encryption
+  * [Marked](https://marked.js.org/) – for markdown parsing
+  * [Highlight.js](https://highlightjs.org/) – for syntax highlighting
+  * [DOMPurify](https://github.com/cure53/DOMPurify) – for HTML sanitization
+
+## Development
+
+### Prerequisites
+
+* Node.js (v16 or newer)
+* npm or yarn
+
+### Development Commands
+
+```bash
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+
+# Build the app for production
+npm run build
+
+# Preview the production build
+npm run preview
+```
+
+## Contributing
+
+Contributions are welcome! To contribute:
+
+1. Fork the repository
+2. Create a new branch: `git checkout -b feature/your-feature-name`
+3. Commit your changes: `git commit -m "Add your feature"`
+4. Push the branch: `git push origin feature/your-feature-name`
+5. Open a pull request
+
+## License
+
+This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.
