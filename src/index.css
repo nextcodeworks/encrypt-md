@@ -1,0 +1,232 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.5rem;
+    --encrypt-primary: 230 92% 63%;
+    --encrypt-secondary: 250 95% 68%;
+    --encrypt-accent: 280 91% 73%;
+  }
+ 
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --encrypt-primary: 230 92% 65%;
+    --encrypt-secondary: 250 95% 70%;
+    --encrypt-accent: 280 91% 76%;
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Editor styles */
+.editor-container {
+  @apply h-full relative;
+}
+
+.editor-line-numbers {
+  @apply absolute left-0 top-0 h-full w-10 bg-muted py-4 text-right text-muted-foreground text-xs font-mono overflow-hidden;
+  user-select: none;
+}
+
+.editor-line-number {
+  @apply px-2 leading-6;
+}
+
+.editor-textarea {
+  @apply w-full h-full bg-background text-foreground p-4 font-mono text-sm leading-6 resize-none outline-none border-none;
+}
+
+/* Markdown preview styles */
+.markdown-preview {
+  @apply p-4;
+}
+
+.markdown-preview h1 {
+  @apply text-3xl font-bold mb-4 border-b pb-2;
+}
+
+.markdown-preview h2 {
+  @apply text-2xl font-bold mt-6 mb-3;
+}
+
+.markdown-preview h3 {
+  @apply text-xl font-bold mt-5 mb-2;
+}
+
+.markdown-preview h4 {
+  @apply text-lg font-bold mt-4 mb-2;
+}
+
+.markdown-preview p {
+  @apply mb-4;
+}
+
+.markdown-preview ul, .markdown-preview ol {
+  @apply ml-6 mb-4;
+}
+
+.markdown-preview ul {
+  @apply list-disc;
+}
+
+.markdown-preview ol {
+  @apply list-decimal;
+}
+
+.markdown-preview li {
+  @apply mb-1;
+}
+
+.markdown-preview blockquote {
+  @apply border-l-4 border-muted-foreground pl-4 italic my-4 text-muted-foreground;
+}
+
+/* Code block styling with language indicator */
+.markdown-preview .code-block-container {
+  @apply relative mb-4;
+}
+
+.markdown-preview .code-language-label {
+  @apply absolute top-0 right-0 bg-muted text-muted-foreground text-xs px-2 py-1 rounded-bl rounded-tr font-mono z-10;
+}
+
+.markdown-preview pre {
+  @apply bg-secondary p-4 rounded-md mb-4 overflow-x-auto mt-6;
+}
+
+.markdown-preview code {
+  @apply font-mono text-sm;
+}
+
+.markdown-preview :not(pre) > code {
+  @apply bg-secondary px-1 py-0.5 rounded text-sm;
+}
+
+.markdown-preview table {
+  @apply w-full border-collapse mb-4;
+}
+
+.markdown-preview th, .markdown-preview td {
+  @apply border p-2;
+}
+
+.markdown-preview img {
+  @apply max-w-full rounded-md;
+}
+
+.markdown-preview a {
+  @apply text-encrypt-primary hover:underline;
+}
+
+.markdown-preview hr {
+  @apply my-6 border-t border-muted;
+}
+
+/* Custom scrollbar */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--muted)) transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--muted));
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Dark mode syntax highlighting overrides */
+.dark .hljs {
+  @apply bg-secondary;
+}
+
+/* Syntax highlighting color enhancements */
+.hljs-keyword {
+  color: #9b87f5; /* Purple */
+}
+
+.hljs-string {
+  color: #F97316; /* Bright Orange */
+}
+
+.hljs-number, .hljs-literal {
+  color: #0EA5E9; /* Ocean Blue */
+}
+
+.hljs-function, .hljs-title.function_ {
+  color: #D946EF; /* Magenta Pink */
+}
+
+.hljs-title, .hljs-title.class_ {
+  color: #8B5CF6; /* Vivid Purple */
+}
+
+.hljs-comment {
+  color: #6E59A5; /* Tertiary Purple - more visible in dark mode */
+}
+
+.hljs-variable, .hljs-attr {
+  color: #D6BCFA; /* Light Purple */
+}
+
+.hljs-operator, .hljs-punctuation {
+  color: #7E69AB; /* Secondary Purple */
+}
